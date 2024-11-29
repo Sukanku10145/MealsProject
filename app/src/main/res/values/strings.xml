@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Meals</string>
+    <string name="bienvenida">Bienvenido</string>
+    <string name="btnMain">Aceptar</string>
+</resources>
