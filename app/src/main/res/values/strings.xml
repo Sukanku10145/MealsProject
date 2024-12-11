@@ -2,4 +2,7 @@
     <string name="app_name">Meals</string>
     <string name="bienvenida">Bienvenido</string>
     <string name="btnMain">Aceptar</string>
+    <string name="tvCre1">%s estás usando la versión 1 de Meals</string>
+    <string name="tvCre2">Esta aplicación muestra una lista de menús, cómo prepararlos y los ingredientes necesarios para ello.</string>
+    <string name="btnCre">Contactar</string>
 </resources>
