@@ -5,8 +5,9 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:gravity="center"
+    android:orientation="vertical"
+    android:theme="@style/Base.Theme.MyApplication"
     tools:context=".LoginFragment">
 
     <TextView
@@ -14,11 +15,11 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
-        android:text="@string/bienvenida"
-        android:textSize="30dp"
-        android:textStyle="bold"
         android:gravity="center"
-        android:textColor="@color/logo" />
+        android:text="@string/bienvenida"
+        android:textColor="@color/logo"
+        android:textSize="30dp"
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/ivMain"
@@ -32,8 +33,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
-        android:hint="Usuario"
-        android:gravity="center" />
+        android:gravity="center"
+        android:hint="Usuario" />
 
     <Button
         android:id="@+id/btnMain"
@@ -42,8 +43,8 @@
         android:layout_weight="2"
         android:backgroundTint="@color/logo"
         android:text="@string/btnMain"
+        android:textColor="#FFFFFF"
         android:textSize="30dp"
-        android:textStyle="bold"
-        android:textColor="#FFFFFF" />
+        android:textStyle="bold" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>
