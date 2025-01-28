@@ -9,28 +9,19 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        installSplashScreen()
+        enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-
-        val btnMain = findViewById<Button>(R.id.btnMain)
-        btnMain.setOnClickListener {
-            goToCredit()
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
         }
-    }
-
-    fun goToCredit() {
-
-        val intent = Intent(this@MainActivity, CreditActivity::class.java)
-
-        val etMain = this.findViewById<EditText>(R.id.etMain)
-
-        intent.putExtra("NAME", etMain.text.toString())
-
-        startActivity(intent)
-        finish()
     }
 }
