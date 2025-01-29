@@ -11,14 +11,33 @@
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
-            android:id="@+id/action_mainFragment_to_creditFragment"
-            app:destination="@id/creditFragment" />
+            android:id="@+id/action_mainFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
     </fragment>
     <fragment
         android:id="@+id/creditFragment"
         android:name="com.example.myapplication.CreditFragment"
         android:label="fragment_credit"
         tools:layout="@layout/fragment_credit" >
+        <argument
+            android:name="user"
+            app:argType="string"
+            android:defaultValue="Usuario" />
+        <action
+            android:id="@+id/action_creditFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.example.myapplication.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_menuFragment_to_creditFragment"
+            app:destination="@id/creditFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
         <argument
             android:name="user"
             app:argType="string"

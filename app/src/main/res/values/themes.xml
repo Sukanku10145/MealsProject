@@ -3,12 +3,29 @@
     <style name="Base.Theme.MyApplication" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="materialButtonStyle">@style/MyButtonStyle</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/dark_orange</item>
+        <item name="android:background">@color/light_orange</item>
     </style>
 
-    <style name="Theme.MyApplication" parent="Base.Theme.MyApplication" />
+    <style name="Titulo">
+        <item name="android:textColor">@color/orange</item>
+    </style>
+
+    <style name="MyButtonStyle" parent="Widget.MaterialComponents.Button">
+        <item name="shapeAppearanceOverlay">@style/Shape</item>
+        <item name="android:backgroundTint">@color/orange</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Shape">
+        <item name="cornerSize">20dp</item>
+    </style>
 
     <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:windowSplashScreenAnimatedIcon">@null</item> <!-- Asegúrate de eliminarlo -->
-        <item name="android:windowBackground">@drawable/splash_background</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/splash_icon</item> <!-- Asegúrate de eliminarlo -->
+        <item name="android:windowBackground">@drawable/splash</item>
     </style>
 </resources>

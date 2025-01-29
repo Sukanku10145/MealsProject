@@ -28,8 +28,15 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val nombre = binding.etMain.text
         binding.btnMain.setOnClickListener{
-            val request = LoginFragmentDirections.actionMainFragmentToCreditFragment(user = nombre.toString())
-            findNavController().navigate(request)
+            if (nombre.toString() == "") {
+                val request =
+                    LoginFragmentDirections.actionMainFragmentToMenuFragment()
+                findNavController().navigate(request)
+            }else {
+                val request =
+                    LoginFragmentDirections.actionMainFragmentToMenuFragment(user = nombre.toString())
+                findNavController().navigate(request)
+            }
         }
     }
 }

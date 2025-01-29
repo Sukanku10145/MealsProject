@@ -2,7 +2,7 @@
 <layer-list android:opacity="opaque"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
-        <color android:color="@color/logo">
+        <color android:color="@color/dark_orange">
 
         </color>
     </item>

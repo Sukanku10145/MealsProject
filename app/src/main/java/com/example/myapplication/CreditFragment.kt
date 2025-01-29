@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.myapplication.databinding.FragmentCreditBinding
 import com.example.myapplication.databinding.FragmentMainBinding
@@ -48,6 +49,10 @@ class CreditFragment : Fragment() {
             }catch (e: ActivityNotFoundException){
                 println("ERROR")
             }
+        }
+        binding.btnCre2.setOnClickListener{
+            val request = CreditFragmentDirections.actionCreditFragmentToMenuFragment(user = args.user)
+            findNavController().navigate(request)
         }
     }
 }

@@ -5,7 +5,6 @@
     android:id="@+id/credit"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/logo"
     tools:context=".CreditFragment">
 
     <TextView
@@ -33,11 +32,28 @@
 
     <Button
         android:id="@+id/btnCre"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:text="@string/btnCre"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:theme="@style/MyButtonStyle"
+        app:layout_constraintBottom_toTopOf="@+id/btnCre2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvCre2" />
+
+    <Button
+        android:id="@+id/btnCre2"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/btnCre2"
+        android:theme="@style/MyButtonStyle"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
