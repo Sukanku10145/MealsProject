@@ -40,6 +40,9 @@ android {
 }
 
 dependencies {
+
+    implementation (libs.glide)
+
     val nav_version = "2.8.5"
     //Kotlin
     implementation(libs.androidx.navigation.fragment.ktx)

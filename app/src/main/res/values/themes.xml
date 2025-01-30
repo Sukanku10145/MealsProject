@@ -4,9 +4,16 @@
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
         <item name="materialButtonStyle">@style/MyButtonStyle</item>
+        <item name="tabStyle">@style/Layout</item>
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">@color/dark_orange</item>
         <item name="android:background">@color/light_orange</item>
+    </style>
+
+    <style name="Layout" parent="Widget.MaterialComponents.TabLayout">
+        <item name="android:background">@color/logo</item>
+        <item name="tabIconTint">@color/white</item>
+        <item name="tabTextColor">@color/white</item>
     </style>
 
     <style name="Titulo">

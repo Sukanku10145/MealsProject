@@ -30,11 +30,11 @@ class LoginFragment : Fragment() {
         binding.btnMain.setOnClickListener{
             if (nombre.toString() == "") {
                 val request =
-                    LoginFragmentDirections.actionMainFragmentToMenuFragment()
+                    LoginFragmentDirections.actionMainFragmentToViewPagerFragment()
                 findNavController().navigate(request)
             }else {
                 val request =
-                    LoginFragmentDirections.actionMainFragmentToMenuFragment(user = nombre.toString())
+                    LoginFragmentDirections.actionMainFragmentToViewPagerFragment(user = nombre.toString())
                 findNavController().navigate(request)
             }
         }

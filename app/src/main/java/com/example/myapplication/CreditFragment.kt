@@ -18,7 +18,14 @@ class CreditFragment : Fragment() {
 
     private var _binding: FragmentCreditBinding? = null
     private val binding get() = _binding!!
-    private val args: CreditFragmentArgs by navArgs()
+    private var receivedData: String? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+            receivedData = it.getString(ARG_DATA)
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,7 +35,7 @@ class CreditFragment : Fragment() {
         //return inflater.inflate(R.layout.fragment_credit, container, false)
         _binding = FragmentCreditBinding.inflate(inflater, container, false)
 
-        binding.tvCre1.text = getString(R.string.tvCre1,args.user)
+        binding.tvCre1.text = getString(R.string.tvCre1,receivedData)
 
         return binding.root
     }
@@ -50,9 +57,17 @@ class CreditFragment : Fragment() {
                 println("ERROR")
             }
         }
-        binding.btnCre2.setOnClickListener{
-            val request = CreditFragmentDirections.actionCreditFragmentToMenuFragment(user = args.user)
-            findNavController().navigate(request)
+    }
+
+    companion object {
+        private const val ARG_DATA = "arg_data"
+
+        fun newInstance(data: String): CreditFragment {
+            return CreditFragment().apply {
+                arguments = Bundle().apply {
+                    putString(ARG_DATA, data)
+                }
+            }
         }
     }
 }

@@ -7,8 +7,7 @@
     <string name="btnCre">Contactar</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="tvMen1">%s, bienvenido</string>
-    <string name="btMen1">Credit</string>
-    <string name="btMen2">Opcion2</string>
-    <string name="btMen3">Salir</string>
+    <string name="btMen3">Comenzar</string>
     <string name="btnCre2">Atras</string>
+    <string name="tvNotice">ASD</string>
 </resources>

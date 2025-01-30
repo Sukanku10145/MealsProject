@@ -15,7 +15,14 @@ class MenuFragment : Fragment() {
 
     private var _binding: FragmentMenuBinding? = null
     private val binding get() = _binding!!
-    private val args: MenuFragmentArgs by navArgs()
+    private var receivedData: String? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+            receivedData = it.getString(ARG_DATA)
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,20 +32,27 @@ class MenuFragment : Fragment() {
         //return inflater.inflate(R.layout.fragment_menu, container, false)
         _binding = FragmentMenuBinding.inflate(inflater, container, false)
 
-        binding.tvMen1.text = getString(R.string.tvMen1,args.user)
+        binding.tvMen1.text = getString(R.string.tvMen1,receivedData.toString())
 
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btMen1.setOnClickListener{
-            val request = MenuFragmentDirections.actionMenuFragmentToCreditFragment(user = args.user)
+        binding.btMen3.setOnClickListener{
+            val request = ViewPagerFragmentDirections.actionViewPagerFragmentToItemListFragment()
             findNavController().navigate(request)
         }
-        binding.btMen3.setOnClickListener{
-            val request = MenuFragmentDirections.actionMenuFragmentToMainFragment()
-            findNavController().navigate(request)
+    }
+    companion object {
+        private const val ARG_DATA = "arg_data"
+
+        fun newInstance(data: String): MenuFragment {
+            return MenuFragment().apply {
+                arguments = Bundle().apply {
+                    putString(ARG_DATA, data)
+                }
+            }
         }
     }
 }

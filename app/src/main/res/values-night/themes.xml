@@ -3,10 +3,18 @@
     <style name="Base.Theme.MyApplication" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorPrimary">@color/logo</item>
         <item name="materialButtonStyle">@style/MyButtonStyle</item>
+        <item name="tabStyle">@style/Layout</item>
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">@color/gray</item>
         <item name="android:background">@color/dark_orange</item>
+    </style>
+
+    <style name="Layout" parent="Widget.MaterialComponents.TabLayout">
+        <item name="android:background">@color/black</item>
+        <item name="tabIconTint">@color/gray</item>
+        <item name="tabTextColor">@color/gray</item>
     </style>
 
     <style name="Titulo">
