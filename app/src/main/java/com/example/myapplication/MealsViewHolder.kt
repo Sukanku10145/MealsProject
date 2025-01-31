@@ -18,8 +18,6 @@ class MealsViewHolder(view: View): RecyclerView.ViewHolder(view) {
         binding.tvYoutube.text = mealModel.strYoutube
         binding.tvCategory.text = mealModel.strCategory
         binding.tvIngredients.text = mealModel.ingredients.toString()
-        binding.tvInstructions.text = mealModel.strInstructions
-        binding.tvMeasures.text = mealModel.measures.toString()
         Glide.with(binding.ivMealThumb.context).load(mealModel.strMealThumb).into(binding.ivMealThumb)
         itemView.setOnClickListener {
             onClickListener(mealModel)

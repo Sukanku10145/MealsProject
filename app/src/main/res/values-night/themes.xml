@@ -3,12 +3,19 @@
     <style name="Base.Theme.MyApplication" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
-        <item name="colorPrimary">@color/logo</item>
         <item name="materialButtonStyle">@style/MyButtonStyle</item>
         <item name="tabStyle">@style/Layout</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">15sp</item>
         <item name="android:textColor">@color/gray</item>
         <item name="android:background">@color/dark_orange</item>
+    </style>
+
+    <style name="bordes" parent="Base.Theme.MyApplication">
+        <item name="android:background">@drawable/background_with_border_dark</item>
+    </style>
+
+    <style name="bordes_finos">
+        <item name="android:background">@drawable/background_with_border_fino_dark</item>
     </style>
 
     <style name="Layout" parent="Widget.MaterialComponents.TabLayout">
@@ -19,6 +26,12 @@
 
     <style name="Titulo">
         <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <style name="cabecera">
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
     </style>
 
     <style name="MyButtonStyle" parent="Widget.MaterialComponents.Button">

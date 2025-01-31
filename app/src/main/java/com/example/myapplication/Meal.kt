@@ -1,5 +1,9 @@
 package com.example.myapplication
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Meal(
     val idMeal: String,
     val strMeal: String,
@@ -13,4 +17,4 @@ data class Meal(
     val ingredients: List<String?>,
     val measures: List<String?>,
     val strSource: String?
-)
+) : Parcelable

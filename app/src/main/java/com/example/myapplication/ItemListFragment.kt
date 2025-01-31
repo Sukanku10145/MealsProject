@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.databinding.FragmentItemListBinding
@@ -37,10 +38,7 @@ class ItemListFragment : Fragment() {
     }
 
     private fun onItemSelected(meal: Meal) {
-        Toast.makeText(
-            requireContext(),
-            meal.strMeal,
-            Toast.LENGTH_SHORT
-        ).show()
+        val request = ItemListFragmentDirections.actionItemListFragmentToDetailItemFragment(meal = meal)
+        findNavController().navigate(request)
     }
 }
