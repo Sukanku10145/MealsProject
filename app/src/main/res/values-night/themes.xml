@@ -40,6 +40,10 @@
         <item name="android:textColor">@color/gray</item>
         <item name="android:textStyle">bold</item>
     </style>
+
+    <style name="imagebutton">
+        <item name="android:background">@drawable/imagebutton_background_dark</item>
+    </style>
     
     <style name="Shape">
         <item name="cornerSize">20dp</item>

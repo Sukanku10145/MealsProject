@@ -3,6 +3,7 @@
     <style name="Base.Theme.MyApplication" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:imageButtonStyle">@style/imagebutton</item>
         <item name="materialButtonStyle">@style/MyButtonStyle</item>
         <item name="tabStyle">@style/Layout</item>
         <item name="android:textSize">15sp</item>
@@ -31,7 +32,7 @@
     <style name="cabecera">
         <item name="android:textColor">@color/dark_orange</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">18sp</item>
     </style>
 
     <style name="MyButtonStyle" parent="Widget.MaterialComponents.Button">
@@ -43,7 +44,6 @@
 
     <style name="imagebutton">
         <item name="android:background">@drawable/imagebutton_background</item>
-        <item name="android:src">@drawable/heart_icon</item>
     </style>
 
     <style name="Shape">

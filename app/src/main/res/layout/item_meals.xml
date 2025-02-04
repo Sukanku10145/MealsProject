@@ -3,16 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/gray"
     android:padding="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         style="@style/bordes"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:padding="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="10dp">
 
         <ImageView
@@ -31,15 +31,17 @@
             android:layout_marginStart="16dp"
             android:text="Name:"
             android:theme="@style/cabecera"
-            app:layout_constraintBottom_toTopOf="@+id/tvCategory1"
+            app:layout_constraintBottom_toBottomOf="@+id/tvMealName"
             app:layout_constraintStart_toEndOf="@id/ivMealThumb"
-            app:layout_constraintTop_toTopOf="@id/ivMealThumb" />
+            app:layout_constraintTop_toTopOf="@id/tvMealName" />
 
         <TextView
             android:id="@+id/tvMealName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
             app:layout_constraintBottom_toTopOf="@+id/tvCategory"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/tvCategory"
             app:layout_constraintTop_toTopOf="@+id/ivMealThumb"
             tools:text="Meal Name" />
@@ -51,16 +53,18 @@
             android:layout_marginStart="16dp"
             android:text="Category:"
             android:theme="@style/cabecera"
-            app:layout_constraintBottom_toTopOf="@+id/tvArea1"
+            app:layout_constraintBottom_toBottomOf="@+id/tvCategory"
             app:layout_constraintStart_toEndOf="@id/ivMealThumb"
-            app:layout_constraintTop_toBottomOf="@+id/tvMealName1" />
+            app:layout_constraintTop_toTopOf="@+id/tvCategory" />
 
         <TextView
             android:id="@+id/tvCategory"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             app:layout_constraintBottom_toTopOf="@+id/tvArea"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/tvCategory1"
             app:layout_constraintTop_toBottomOf="@+id/tvMealName"
             tools:text="Category" />
@@ -72,15 +76,17 @@
             android:layout_marginStart="16dp"
             android:text="Area:"
             android:theme="@style/cabecera"
-            app:layout_constraintBottom_toBottomOf="@id/ivMealThumb"
+            app:layout_constraintBottom_toBottomOf="@id/tvArea"
             app:layout_constraintStart_toEndOf="@id/ivMealThumb"
-            app:layout_constraintTop_toBottomOf="@+id/tvCategory1" />
+            app:layout_constraintTop_toTopOf="@+id/tvArea" />
 
         <TextView
             android:id="@+id/tvArea"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
             app:layout_constraintBottom_toBottomOf="@id/ivMealThumb"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/tvCategory"
             app:layout_constraintTop_toBottomOf="@+id/tvCategory"
             tools:text="Area" />
@@ -207,12 +213,12 @@
             tools:text="Source" />
 
         <ImageButton
+            android:id="@+id/ibItem"
+            style="@style/imagebutton"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:src="@drawable/heart_icon"
-            style="@style/imagebutton"
+            android:src="@drawable/empty_heart_icon"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSource" />
 

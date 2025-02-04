@@ -5,9 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.databinding.FragmentFavItemListBinding
 import com.example.myapplication.databinding.FragmentItemListBinding
-import com.example.myapplication.databinding.FragmentUserInfoBinding
 
 class FavItemListFragment : Fragment() {
 
@@ -18,9 +23,30 @@ class FavItemListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        //return inflater.inflate(R.layout.fragment_fav_item_list, container, false)
         _binding = FragmentFavItemListBinding.inflate(inflater, container, false)
+        initRecyclerView()
+
+        binding.btnVolver.setOnClickListener{
+            val request = FavItemListFragmentDirections.actionFavItemListFragmentToItemListFragment()
+            findNavController().navigate(request)
+        }
+
         return binding.root
+    }
+
+    private fun initRecyclerView() {
+        val manager = LinearLayoutManager(requireContext())
+        binding.rvItemList.layoutManager = manager
+
+        val favoriteMeals = MealData.meals.filter { it.fav }
+
+        binding.rvItemList.adapter = MealsAdapter(favoriteMeals) { meal ->
+            onItemSelected(meal)
+        }
+    }
+
+    private fun onItemSelected(meal: Meal) {
+        val request = FavItemListFragmentDirections.actionFavItemListFragmentToDetailFavItemFragment(meal = meal)
+        findNavController().navigate(request)
     }
 }

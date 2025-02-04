@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.databinding.FragmentItemListBinding
@@ -18,6 +19,7 @@ class ItemListFragment : Fragment() {
 
     private var _binding: FragmentItemListBinding? = null
     private val binding get() = _binding!!
+    private val args: ItemListFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,6 +29,17 @@ class ItemListFragment : Fragment() {
         //return inflater.inflate(R.layout.fragment_user_info, container, false)
         _binding = FragmentItemListBinding.inflate(inflater, container, false)
         initRecyclerView()
+
+        binding.btnFav.setOnClickListener{
+            val request = ItemListFragmentDirections.actionItemListFragmentToFavItemListFragment()
+            findNavController().navigate(request)
+        }
+
+        binding.btnUser.setOnClickListener{
+            val request = ItemListFragmentDirections.actionItemListFragmentToUserInfoFragment(user = args.user)
+            findNavController().navigate(request)
+        }
+
         return binding.root
     }
 
@@ -34,7 +47,9 @@ class ItemListFragment : Fragment() {
         //val manager = GridLayoutManager(this,2)
         val manager = LinearLayoutManager(requireContext())
         binding.rvItemList.layoutManager = manager
-        binding.rvItemList.adapter = MealsAdapter(MealData.meals) { meal -> onItemSelected(meal) }
+        binding.rvItemList.adapter = MealsAdapter(MealData.meals) {
+            meal -> onItemSelected(meal)
+        }
     }
 
     private fun onItemSelected(meal: Meal) {

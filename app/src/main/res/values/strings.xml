@@ -11,4 +11,8 @@
     <string name="btnCre2">Atras</string>
     <string name="tvNotice">ASD</string>
     <string name="btItem">Fav</string>
+    <string name="btnFav">Favoritos</string>
+    <string name="btnUser">Usuario</string>
+    <string name="btnVolver">Volver</string>
+    <string name="btnSalir">Salir</string>
 </resources>

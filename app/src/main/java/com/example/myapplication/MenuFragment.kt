@@ -36,8 +36,14 @@ class MenuFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.btnSalir.setOnClickListener{
+            val request = ViewPagerFragmentDirections.actionViewPagerFragmentToMainFragment()
+            findNavController().navigate(request)
+        }
+
         binding.btMen3.setOnClickListener{
-            val request = ViewPagerFragmentDirections.actionViewPagerFragmentToItemListFragment()
+            val request = ViewPagerFragmentDirections.actionViewPagerFragmentToItemListFragment(user = receivedData.toString())
             findNavController().navigate(request)
         }
     }

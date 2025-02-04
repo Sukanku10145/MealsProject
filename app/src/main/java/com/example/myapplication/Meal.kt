@@ -16,5 +16,8 @@ data class Meal(
     val strYoutube: String,
     val ingredients: List<String?>,
     val measures: List<String?>,
-    val strSource: String?
+    val strSource: String?,
+    var fav: Boolean,
+    var star: Int,
+    var comment: String?
 ) : Parcelable

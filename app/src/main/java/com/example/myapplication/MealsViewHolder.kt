@@ -14,13 +14,34 @@ class MealsViewHolder(view: View): RecyclerView.ViewHolder(view) {
         binding.tvMealName.text = mealModel.strMeal
         binding.tvArea.text = mealModel.strArea
         binding.tvTags.text = mealModel.strTags
-        binding.tvSource.text = mealModel.strSource
+
+        if (mealModel.strSource == null){
+            binding.tvSource.text = "No hay"
+        } else{
+            binding.tvSource.text = mealModel.strSource
+        }
+
         binding.tvYoutube.text = mealModel.strYoutube
         binding.tvCategory.text = mealModel.strCategory
         binding.tvIngredients.text = mealModel.ingredients.toString()
         Glide.with(binding.ivMealThumb.context).load(mealModel.strMealThumb).into(binding.ivMealThumb)
+
+        if (mealModel.fav) {
+            binding.ibItem.setImageResource(R.drawable.heart_icon)
+        } else {
+            binding.ibItem.setImageResource(R.drawable.empty_heart_icon)
+        }
         itemView.setOnClickListener {
             onClickListener(mealModel)
+        }
+
+        binding.ibItem.setOnClickListener {
+            if (mealModel.fav) {
+                binding.ibItem.setImageResource(R.drawable.empty_heart_icon)
+            } else {
+                binding.ibItem.setImageResource(R.drawable.heart_icon)
+            }
+            mealModel.fav = !mealModel.fav
         }
     }
 }
