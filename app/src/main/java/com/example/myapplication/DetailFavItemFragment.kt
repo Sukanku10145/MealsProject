@@ -14,6 +14,7 @@ class DetailFavItemFragment : Fragment() {
     private var _binding: FragmentDetailFavItemBinding? = null
     private val binding get() = _binding!!
     private var meal: Meal? = null
+    private var star: Int = 1
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -26,14 +27,16 @@ class DetailFavItemFragment : Fragment() {
             binding.tvInstructions.text = it.strInstructions
             binding.tvIngredients.text = it.ingredients.toString()
             binding.tvMeasures.text = it.measures.toString()
-            binding.tvTags.text = it.strTags
-            binding.tvSource.text = it.strSource
-            if (binding.tvSource.text == ""){
-                binding.tvSource.text = "No hay"
-            }
+            binding.tvTags.text = it.strTags ?: "No hay"
+            binding.tvSource.text = it.strSource ?: "No hay"
             binding.tvYoutube.text = it.strYoutube
             binding.etComment.setText(it.comment.toString())
             Glide.with(this).load(it.strMealThumb).into(binding.ivMealThumb)
+            binding.ib1.setImageResource(R.drawable.star_icon)
+            binding.ib2.setImageResource(if (it.star > 1) R.drawable.star_icon else R.drawable.empty_star_icon)
+            binding.ib3.setImageResource(if (it.star > 2) R.drawable.star_icon else R.drawable.empty_star_icon)
+            binding.ib4.setImageResource(if (it.star > 3) R.drawable.star_icon else R.drawable.empty_star_icon)
+            binding.ib5.setImageResource(if (it.star > 4) R.drawable.star_icon else R.drawable.empty_star_icon)
         }
     }
 
@@ -43,8 +46,49 @@ class DetailFavItemFragment : Fragment() {
     ): View? {
         _binding = FragmentDetailFavItemBinding.inflate(inflater, container, false)
 
+        binding.ib1.setOnClickListener{
+            binding.ib2.setImageResource(R.drawable.empty_star_icon)
+            binding.ib3.setImageResource(R.drawable.empty_star_icon)
+            binding.ib4.setImageResource(R.drawable.empty_star_icon)
+            binding.ib5.setImageResource(R.drawable.empty_star_icon)
+            star = 1
+        }
+
+        binding.ib2.setOnClickListener{
+            binding.ib2.setImageResource(R.drawable.star_icon)
+            binding.ib3.setImageResource(R.drawable.empty_star_icon)
+            binding.ib4.setImageResource(R.drawable.empty_star_icon)
+            binding.ib5.setImageResource(R.drawable.empty_star_icon)
+            star = 2
+        }
+
+        binding.ib3.setOnClickListener{
+            binding.ib2.setImageResource(R.drawable.star_icon)
+            binding.ib3.setImageResource(R.drawable.star_icon)
+            binding.ib4.setImageResource(R.drawable.empty_star_icon)
+            binding.ib5.setImageResource(R.drawable.empty_star_icon)
+            star = 3
+        }
+
+        binding.ib4.setOnClickListener{
+            binding.ib2.setImageResource(R.drawable.star_icon)
+            binding.ib3.setImageResource(R.drawable.star_icon)
+            binding.ib4.setImageResource(R.drawable.star_icon)
+            binding.ib5.setImageResource(R.drawable.empty_star_icon)
+            star = 4
+        }
+
+        binding.ib5.setOnClickListener{
+            binding.ib2.setImageResource(R.drawable.star_icon)
+            binding.ib3.setImageResource(R.drawable.star_icon)
+            binding.ib4.setImageResource(R.drawable.star_icon)
+            binding.ib5.setImageResource(R.drawable.star_icon)
+            star = 5
+        }
+
         binding.btnVolver.setOnClickListener{
             updateComment()
+            updateStar()
             val request = DetailFavItemFragmentDirections.actionDetailFavItemFragmentToFavItemListFragment()
             findNavController().navigate(request)
         }
@@ -54,10 +98,15 @@ class DetailFavItemFragment : Fragment() {
 
     override fun onPause() {
         super.onPause()
-        updateComment() // Guardar comentario cuando el fragmento se cierra
+        updateComment()
+        updateStar()
     }
 
     private fun updateComment() {
         meal?.comment = binding.etComment.text.toString()
+    }
+
+    private fun updateStar() {
+        meal?.star = star
     }
 }

@@ -1,17 +1,13 @@
 package com.example.myapplication
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
-import androidx.navigation.navArgument
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import androidx.viewpager2.adapter.FragmentViewHolder
 import com.example.myapplication.databinding.FragmentViewPagerBinding
-import com.google.android.material.badge.BadgeDrawable
 import com.google.android.material.tabs.TabLayoutMediator
 
 class ViewPagerFragment : Fragment() {
@@ -36,11 +32,11 @@ class ViewPagerFragment : Fragment() {
                 tab, position ->
             when(position){
                 0 -> {
-                    tab.text = "Informacion"
+                    tab.text = getString(R.string.info)
                     tab.setIcon(R.drawable.info_icon)
                 }
                 1 -> {
-                    tab.text = "Comenzar"
+                    tab.text = getString(R.string.btMen3)
                     tab.setIcon(R.drawable.flag_icon)
                 }
             }

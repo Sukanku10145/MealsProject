@@ -42,7 +42,7 @@
             android:layout_marginTop="24dp"
             android:layout_marginEnd="24dp"
             android:gravity="center|bottom"
-            android:text="User Name"
+            android:text="@string/UserName"
             android:textSize="30sp"
             android:theme="@style/cabecera"
             app:layout_constraintBottom_toTopOf="@+id/tvUserName"

@@ -2,10 +2,7 @@ package com.example.myapplication
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.appcompat.widget.SearchView.OnCloseListener
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myapplication.Meal
-import com.example.myapplication.R
 
 class MealsAdapter(
     private val mealsLista:List<Meal>,
