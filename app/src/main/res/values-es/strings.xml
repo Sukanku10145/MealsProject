@@ -25,4 +25,5 @@
     <string name="tvMen1">%s, bienvenido</string>
     <string name="btMen3">Comenzar</string>
     <string name="info">Información</string>
+    <string name="back">atras</string>
 </resources>
