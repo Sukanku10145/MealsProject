@@ -42,11 +42,12 @@ class MenuFragment : Fragment() {
             findNavController().navigate(request)
         }
 
-        binding.btMen3.setOnClickListener{
-            val request = ViewPagerFragmentDirections.actionViewPagerFragmentToItemListFragment(user = receivedData.toString())
+        binding.btStart.setOnClickListener{
+            val request = ViewPagerFragmentDirections.actionViewPagerFragmentToViewPagerAppFragment(user = receivedData.toString())
             findNavController().navigate(request)
         }
     }
+
     companion object {
         private const val ARG_DATA = "arg_data"
 

@@ -28,69 +28,63 @@
             android:id="@+id/tvMealName1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:text="@string/Name"
             android:theme="@style/cabecera"
-            app:layout_constraintBottom_toBottomOf="@+id/tvMealName"
-            app:layout_constraintStart_toEndOf="@id/ivMealThumb"
-            app:layout_constraintTop_toTopOf="@id/tvMealName" />
+            app:layout_constraintBottom_toTopOf="@+id/tvMealName"
+            app:layout_constraintEnd_toEndOf="@+id/ivMealThumb"
+            app:layout_constraintStart_toStartOf="@id/ivMealThumb"
+            app:layout_constraintTop_toBottomOf="@id/ivMealThumb" />
 
         <TextView
             android:id="@+id/tvMealName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintBottom_toTopOf="@+id/tvCategory"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/tvCategory"
-            app:layout_constraintTop_toTopOf="@+id/ivMealThumb"
+            app:layout_constraintBottom_toTopOf="@+id/tvCategory1"
+            app:layout_constraintEnd_toEndOf="@+id/ivMealThumb"
+            app:layout_constraintStart_toStartOf="@id/ivMealThumb"
+            app:layout_constraintTop_toBottomOf="@+id/tvMealName1"
             tools:text="Meal Name" />
 
         <TextView
             android:id="@+id/tvCategory1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:text="@string/Category"
             android:theme="@style/cabecera"
-            app:layout_constraintBottom_toBottomOf="@+id/tvCategory"
-            app:layout_constraintStart_toEndOf="@id/ivMealThumb"
-            app:layout_constraintTop_toTopOf="@+id/tvCategory" />
+            app:layout_constraintBottom_toTopOf="@+id/tvCategory"
+            app:layout_constraintEnd_toEndOf="@id/ivMealThumb"
+            app:layout_constraintStart_toStartOf="@id/ivMealThumb"
+            app:layout_constraintTop_toBottomOf="@+id/tvMealName" />
 
         <TextView
             android:id="@+id/tvCategory"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/tvArea"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tvCategory1"
-            app:layout_constraintTop_toBottomOf="@+id/tvMealName"
+            app:layout_constraintBottom_toTopOf="@+id/tvArea1"
+            app:layout_constraintEnd_toEndOf="@+id/ivMealThumb"
+            app:layout_constraintStart_toStartOf="@id/ivMealThumb"
+            app:layout_constraintTop_toBottomOf="@+id/tvCategory1"
             tools:text="Category" />
 
         <TextView
             android:id="@+id/tvArea1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:text="@string/Area"
             android:theme="@style/cabecera"
-            app:layout_constraintBottom_toBottomOf="@id/tvArea"
-            app:layout_constraintStart_toEndOf="@id/ivMealThumb"
-            app:layout_constraintTop_toTopOf="@+id/tvArea" />
+            app:layout_constraintBottom_toTopOf="@id/tvArea"
+            app:layout_constraintEnd_toEndOf="@id/ivMealThumb"
+            app:layout_constraintStart_toStartOf="@id/ivMealThumb"
+            app:layout_constraintTop_toBottomOf="@+id/tvCategory" />
 
         <TextView
             android:id="@+id/tvArea"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintBottom_toBottomOf="@id/ivMealThumb"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/tvCategory"
-            app:layout_constraintTop_toBottomOf="@+id/tvCategory"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/ivMealThumb"
+            app:layout_constraintStart_toStartOf="@id/ivMealThumb"
+            app:layout_constraintTop_toBottomOf="@+id/tvArea1"
             tools:text="Area" />
 
         <TextView
@@ -100,12 +94,12 @@
             android:layout_height="0dp"
             android:layout_marginStart="16dp"
             android:gravity="center"
-            android:padding="9dp"
+            android:padding="5dp"
             android:text="@string/Tags"
             android:theme="@style/cabecera"
             app:layout_constraintBottom_toBottomOf="@+id/tvTags"
             app:layout_constraintHeight_min="wrap"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivMealThumb"
             app:layout_constraintTop_toTopOf="@id/tvTags" />
 
         <TextView
@@ -113,14 +107,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:paddingTop="4dp"
             android:paddingBottom="4dp"
             app:layout_constraintBottom_toTopOf="@+id/tvYoutube"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tvTags1"
-            app:layout_constraintTop_toBottomOf="@id/ivMealThumb"
+            app:layout_constraintTop_toTopOf="@id/ivMealThumb"
             tools:text="Tags" />
 
         <TextView
@@ -131,12 +124,12 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:gravity="center"
-            android:padding="9dp"
+            android:padding="5dp"
             android:text="@string/YouTube"
             android:theme="@style/cabecera"
             app:layout_constraintBottom_toBottomOf="@+id/tvYoutube"
             app:layout_constraintHeight_min="wrap"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivMealThumb"
             app:layout_constraintTop_toTopOf="@id/tvYoutube" />
 
         <TextView
@@ -144,7 +137,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:paddingTop="4dp"
             android:paddingBottom="4dp"
@@ -162,12 +154,12 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:gravity="center"
-            android:padding="9dp"
+            android:padding="5dp"
             android:text="@string/Ingredients"
             android:theme="@style/cabecera"
             app:layout_constraintBottom_toBottomOf="@+id/tvIngredients"
             app:layout_constraintHeight_min="wrap"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivMealThumb"
             app:layout_constraintTop_toTopOf="@id/tvIngredients" />
 
         <TextView
@@ -175,10 +167,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:paddingTop="4dp"
             android:paddingBottom="4dp"
+            app:layout_constraintBottom_toTopOf="@+id/tvSource"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tvIngredients1"
             app:layout_constraintTop_toBottomOf="@id/tvYoutube"
@@ -192,12 +184,12 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:gravity="center"
-            android:padding="9dp"
+            android:padding="5dp"
             android:text="@string/Source"
             android:theme="@style/cabecera"
             app:layout_constraintBottom_toBottomOf="@+id/tvSource"
             app:layout_constraintHeight_min="wrap"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivMealThumb"
             app:layout_constraintTop_toTopOf="@id/tvSource" />
 
         <TextView
@@ -205,10 +197,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
             android:paddingTop="4dp"
             android:paddingBottom="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/ibItem"
             app:layout_constraintStart_toEndOf="@+id/tvSource1"
             app:layout_constraintTop_toBottomOf="@id/tvIngredients"
@@ -219,11 +212,9 @@
             style="@style/imagebutton"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginTop="16dp"
             android:src="@drawable/empty_heart_icon"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvIngredients"/>
+            app:layout_constraintEnd_toEndOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

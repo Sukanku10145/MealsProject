@@ -4,30 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MenuFragment">
+    tools:context=".MenuFragment"
+    android:theme="@style/Base.Theme.MyApplication">
 
     <TextView
         android:id="@+id/tvMen1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/tvMen1"
-        app:layout_constraintBottom_toTopOf="@+id/btMen3"
+        app:layout_constraintBottom_toTopOf="@+id/btStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btMen3"
+        android:id="@+id/btStart"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
         android:layout_marginEnd="64dp"
-        android:text="@string/btMen3"
+        android:text="@string/btStart"
         android:textSize="15sp"
         android:theme="@style/MyButtonStyle"
+        android:background="@drawable/button_background"
         app:layout_constraintBottom_toTopOf="@+id/btnSalir"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvMen1" />
 
@@ -38,9 +39,11 @@
         android:layout_marginStart="64dp"
         android:layout_marginEnd="64dp"
         android:text="@string/btnSalir"
+        android:theme="@style/MyButtonStyle"
+        android:background="@drawable/button_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btMen3" />
+        app:layout_constraintTop_toBottomOf="@+id/btStart" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

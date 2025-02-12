@@ -4,9 +4,6 @@
     <string name="bienvenida">Bienvenido</string>
     <string name="btnMain">Aceptar</string>
     <string name="tvCre1">%s, estás usando la versión 1 de Meals</string>
-    <string name="btnFav">Favoritos</string>
-    <string name="btnUser">Usuario</string>
-    <string name="btnVolver">Volver</string>
     <string name="btnSalir">Salir</string>
     <string name="Comments">Comentarios</string>
     <string name="Source">Fuente</string>
@@ -21,9 +18,10 @@
     <string name="UserName">Nombre de Usuario</string>
     <string name="tvCre2">Esta aplicación muestra una lista de menús, cómo prepararlos y los ingredientes necesarios para ello.</string>
     <string name="btnCre">Contactar</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="tvMen1">%s, bienvenido</string>
-    <string name="btMen3">Comenzar</string>
     <string name="info">Información</string>
-    <string name="back">atras</string>
+    <string name="discover">Descubrir</string>
+    <string name="favorite">Favoritos</string>
+    <string name="personal">Personal</string>
+    <string name="btStart">Comenzar</string>
 </resources>

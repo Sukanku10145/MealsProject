@@ -21,15 +21,24 @@ class FavItemListFragment : Fragment() {
         _binding = FragmentFavItemListBinding.inflate(inflater, container, false)
         initRecyclerView()
 
-        binding.btnVolver.setOnClickListener{
-            val request = FavItemListFragmentDirections.actionFavItemListFragmentToItemListFragment()
-            findNavController().navigate(request)
-        }
-
         return binding.root
     }
 
     private fun initRecyclerView() {
+        filtro()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        filtro()
+    }
+
+    private fun onItemSelected(meal: Meal) {
+        val request = ViewPagerAppFragmentDirections.actionViewPagerAppFragmentToDetailFavItemFragment(meal = meal)
+        findNavController().navigate(request)
+    }
+
+    private fun filtro(){
         val manager = LinearLayoutManager(requireContext())
         binding.rvItemList.layoutManager = manager
 
@@ -40,8 +49,15 @@ class FavItemListFragment : Fragment() {
         }
     }
 
-    private fun onItemSelected(meal: Meal) {
-        val request = FavItemListFragmentDirections.actionFavItemListFragmentToDetailFavItemFragment(meal = meal)
-        findNavController().navigate(request)
+    companion object {
+        const val ARG_DATA = "arg_data"
+
+        fun newInstance(data: String): FavItemListFragment {
+            return FavItemListFragment().apply {
+                arguments = Bundle().apply {
+                    putString(ARG_DATA, data)
+                }
+            }
+        }
     }
 }

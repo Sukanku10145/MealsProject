@@ -14,8 +14,8 @@ class MealsViewHolder(view: View): RecyclerView.ViewHolder(view) {
         binding.tvYoutube.text = mealModel.strYoutube
         binding.tvCategory.text = mealModel.strCategory
         binding.tvIngredients.text = mealModel.ingredients.toString()
-        binding.tvTags.text = mealModel.strTags ?: "No hay"
-        binding.tvSource.text = mealModel.strSource ?: "No hay"
+        binding.tvTags.text = mealModel.strTags ?: "None"
+        binding.tvSource.text = mealModel.strSource ?: "None"
         Glide.with(binding.ivMealThumb.context).load(mealModel.strMealThumb).into(binding.ivMealThumb)
         binding.ibItem.setImageResource(if (mealModel.fav) R.drawable.heart_icon else R.drawable.empty_heart_icon)
 

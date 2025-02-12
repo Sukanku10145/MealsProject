@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.databinding.FragmentItemListBinding
 
@@ -14,7 +13,14 @@ class ItemListFragment : Fragment() {
 
     private var _binding: FragmentItemListBinding? = null
     private val binding get() = _binding!!
-    private val args: ItemListFragmentArgs by navArgs()
+    private var receivedData: String? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+            receivedData = it.getString(ARG_DATA)
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,16 +30,6 @@ class ItemListFragment : Fragment() {
         //return inflater.inflate(R.layout.fragment_user_info, container, false)
         _binding = FragmentItemListBinding.inflate(inflater, container, false)
         initRecyclerView()
-
-        binding.btnFav.setOnClickListener{
-            val request = ItemListFragmentDirections.actionItemListFragmentToFavItemListFragment()
-            findNavController().navigate(request)
-        }
-
-        binding.btnUser.setOnClickListener{
-            val request = ItemListFragmentDirections.actionItemListFragmentToUserInfoFragment(user = args.user)
-            findNavController().navigate(request)
-        }
 
         return binding.root
     }
@@ -48,7 +44,19 @@ class ItemListFragment : Fragment() {
     }
 
     private fun onItemSelected(meal: Meal) {
-        val request = ItemListFragmentDirections.actionItemListFragmentToDetailItemFragment(meal = meal)
+        val request = ViewPagerAppFragmentDirections.actionViewPagerAppFragmentToDetailItemFragment(meal = meal)
         findNavController().navigate(request)
+    }
+
+    companion object {
+        const val ARG_DATA = "arg_data"
+
+        fun newInstance(data: String): ItemListFragment {
+            return ItemListFragment().apply {
+                arguments = Bundle().apply {
+                    putString(ARG_DATA, data)
+                }
+            }
+        }
     }
 }

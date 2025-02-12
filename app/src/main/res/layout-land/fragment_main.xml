@@ -19,19 +19,19 @@
         android:textStyle="bold"
         android:theme="@style/Titulo"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivMain"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/ivMain" />
+        app:layout_constraintBottom_toTopOf="@+id/etMain" />
 
     <ImageView
         android:id="@+id/ivMain"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:src="@drawable/plato"
-        app:layout_constraintTop_toBottomOf="@id/tvBienvenida"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/etMain" />
+        app:layout_constraintEnd_toStartOf="@+id/tvBienvenida"
+        app:layout_constraintBottom_toTopOf="@+id/btnMain" />
 
     <EditText
         android:id="@+id/etMain"
@@ -45,8 +45,8 @@
         android:backgroundTint="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/btnMain"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ivMain" />
+        app:layout_constraintStart_toEndOf="@+id/ivMain"
+        app:layout_constraintTop_toBottomOf="@id/tvBienvenida" />
 
     <Button
         android:id="@+id/btnMain"

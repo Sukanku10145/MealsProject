@@ -36,7 +36,7 @@ class ViewPagerFragment : Fragment() {
                     tab.setIcon(R.drawable.info_icon)
                 }
                 1 -> {
-                    tab.text = getString(R.string.btMen3)
+                    tab.text = getString(R.string.btStart)
                     tab.setIcon(R.drawable.flag_icon)
                 }
             }

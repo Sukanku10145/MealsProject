@@ -27,8 +27,8 @@ class DetailItemFragment : Fragment() {
             binding.tvInstructions.text = it.strInstructions
             binding.tvIngredients.text = it.ingredients.toString()
             binding.tvMeasures.text = it.measures.toString()
-            binding.tvTags.text = it.strTags ?: "No hay"
-            binding.tvSource.text = it.strSource ?: "No hay"
+            binding.tvTags.text = it.strTags ?: "None"
+            binding.tvSource.text = it.strSource ?: "None"
             binding.tvYoutube.text = it.strYoutube
             Glide.with(this).load(it.strMealThumb).into(binding.ivMealThumb)
         }
@@ -41,11 +41,6 @@ class DetailItemFragment : Fragment() {
         // Inflate the layout for this fragment
         //return inflater.inflate(R.layout.fragment_detail_item, container, false)
         _binding = FragmentDetailItemBinding.inflate(inflater, container, false)
-
-        binding.btnVolver.setOnClickListener{
-            val request = DetailItemFragmentDirections.actionDetailItemFragmentToItemListFragment()
-            findNavController().navigate(request)
-        }
 
         return binding.root
     }

@@ -27,11 +27,12 @@ class DetailFavItemFragment : Fragment() {
             binding.tvInstructions.text = it.strInstructions
             binding.tvIngredients.text = it.ingredients.toString()
             binding.tvMeasures.text = it.measures.toString()
-            binding.tvTags.text = it.strTags ?: "No hay"
-            binding.tvSource.text = it.strSource ?: "No hay"
+            binding.tvTags.text = it.strTags ?: "None"
+            binding.tvSource.text = it.strSource ?: "None"
             binding.tvYoutube.text = it.strYoutube
             binding.etComment.setText(it.comment.toString())
             Glide.with(this).load(it.strMealThumb).into(binding.ivMealThumb)
+            star = it.star
             binding.ib1.setImageResource(R.drawable.star_icon)
             binding.ib2.setImageResource(if (it.star > 1) R.drawable.star_icon else R.drawable.empty_star_icon)
             binding.ib3.setImageResource(if (it.star > 2) R.drawable.star_icon else R.drawable.empty_star_icon)
@@ -86,18 +87,11 @@ class DetailFavItemFragment : Fragment() {
             star = 5
         }
 
-        binding.btnVolver.setOnClickListener{
-            updateComment()
-            updateStar()
-            val request = DetailFavItemFragmentDirections.actionDetailFavItemFragmentToFavItemListFragment()
-            findNavController().navigate(request)
-        }
-
         return binding.root
     }
 
-    override fun onPause() {
-        super.onPause()
+    override fun onStop() {
+        super.onStop()
         updateComment()
         updateStar()
     }

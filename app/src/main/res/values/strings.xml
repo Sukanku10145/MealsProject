@@ -3,10 +3,7 @@
     <string name="bienvenida">Welcome</string>
     <string name="btnMain">Accept</string>
     <string name="tvCre1">%s, you are using the version 1 of Meals</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="tvMen1">%s, welcome</string>
-    <string name="btnUser">User</string>
-    <string name="btnVolver">Back</string>
     <string name="btnSalir">Exit</string>
     <string name="Comments">Comments</string>
     <string name="Source">Source</string>
@@ -21,8 +18,9 @@
     <string name="UserName">User Name</string>
     <string name="tvCre2">This app shows a list of menus, how to prepare them, and the ingredients needed for it.</string>
     <string name="btnCre">Contact</string>
-    <string name="btMen3">Start</string>
-    <string name="btnFav">Favorites</string>
+    <string name="btStart">Start</string>
     <string name="info">Information</string>
-    <string name="back">back</string>
+    <string name="discover">Discover</string>
+    <string name="favorite">Favorites</string>
+    <string name="personal">Personal</string>
 </resources>
