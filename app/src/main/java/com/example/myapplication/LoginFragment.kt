@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.myapplication.databinding.FragmentMainBinding
 
@@ -26,11 +27,11 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val nombre = binding.etMain.text
         binding.btnMain.setOnClickListener{
+            val nombre = binding.etMain.text
             if (nombre.toString() == "") {
                 val request =
-                    LoginFragmentDirections.actionMainFragmentToViewPagerFragment()
+                    LoginFragmentDirections.actionMainFragmentToViewPagerFragment(user = getString(R.string.usuario))
                 findNavController().navigate(request)
             }else {
                 val request =
@@ -38,5 +39,17 @@ class LoginFragment : Fragment() {
                 findNavController().navigate(request)
             }
         }
+
+        binding.etMain.setOnClickListener{
+            toast()
+        }
+    }
+
+    private fun toast(){
+        Toast.makeText(
+            this.context,
+            getString(R.string.etMainToast),
+            Toast.LENGTH_SHORT
+        ).show()
     }
 }

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -44,9 +45,21 @@ class FavItemListFragment : Fragment() {
 
         val favoriteMeals = MealData.meals.filter { it.fav }
 
+        if (favoriteMeals.isEmpty()) {
+            toast() // Llamar a la función toast si no hay elementos en la lista
+        }
+
         binding.rvItemList.adapter = MealsAdapter(favoriteMeals) { meal ->
             onItemSelected(meal)
         }
+    }
+
+    private fun toast(){
+        Toast.makeText(
+            this.context,
+            getString(R.string.favToast),
+            Toast.LENGTH_SHORT
+        ).show()
     }
 
     companion object {

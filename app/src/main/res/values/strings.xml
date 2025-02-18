@@ -23,4 +23,7 @@
     <string name="discover">Discover</string>
     <string name="favorite">Favorites</string>
     <string name="personal">Personal</string>
+    <string name="etMainToast">The default user name is \'User\'</string>
+    <string name="favToast">There are no items added to favorites</string>
+    <string name="usuario">User</string>
 </resources>

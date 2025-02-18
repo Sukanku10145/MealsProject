@@ -24,4 +24,7 @@
     <string name="favorite">Favoritos</string>
     <string name="personal">Personal</string>
     <string name="btStart">Comenzar</string>
+    <string name="etMainToast">El nombre de usuario por defecto es \'Usuario\'</string>
+    <string name="favToast">No hay objetos añadidos a favoritos</string>
+    <string name="usuario">Usuario</string>
 </resources>
