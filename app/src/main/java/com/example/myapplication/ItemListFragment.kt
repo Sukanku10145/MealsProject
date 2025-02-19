@@ -34,6 +34,11 @@ class ItemListFragment : Fragment() {
         return binding.root
     }
 
+    override fun onResume() {
+        super.onResume()
+        initRecyclerView()
+    }
+
     private fun initRecyclerView() {
         //val manager = GridLayoutManager(this,2)
         val manager = LinearLayoutManager(requireContext())

@@ -27,5 +27,9 @@ class MealsViewHolder(view: View): RecyclerView.ViewHolder(view) {
         itemView.setOnClickListener {
             onClickListener(mealModel)
         }
+
+        binding.tvYoutube.setOnClickListener{
+
+        }
     }
 }

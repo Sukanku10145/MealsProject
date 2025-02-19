@@ -10,6 +10,15 @@
         <item name="android:textColor">@color/dark_orange</item>
     </style>
 
+    <style name="CustomSpinnerStyle" parent="Widget.AppCompat.Spinner">
+        <item name="android:popupBackground">@color/light_orange</item>
+        <item name="android:background">@drawable/my_rectangle</item> <!-- Fondo personalizable -->
+        <item name="android:backgroundTint">@color/logo</item>
+        <item name="android:backgroundTintMode">multiply</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:paddingEnd">30dp</item>
+    </style>
+
     <style name="menu" parent="Widget.AppCompat.Toolbar">
         <item name="android:backgroundTint">@color/logo</item>
         <item name="titleTextColor">@color/white</item>

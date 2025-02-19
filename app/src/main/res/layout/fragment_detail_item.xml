@@ -181,6 +181,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvYoutube1"
+        android:autoLink="web"
+        android:linksClickable="true"
         tools:text="Watch on YouTube" />
 
     <TextView
@@ -258,6 +260,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvSource1"
+        android:autoLink="web"
+        android:linksClickable="true"
         tools:text="Source" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
