@@ -1,0 +1,55 @@
+@startuml
+actor "Usuario" as User
+
+rectangle "MealApp" {
+
+  usecase "Lanzar aplicación" as UC_Launch
+  usecase "Mostrar Splash Screen" as UC_Splash
+  usecase "Iniciar sesión" as UC_Login
+  usecase "Seleccionar tema" as UC_Theme
+  usecase "Acceder a la aplicación" as UC_Access
+  usecase "Navegar entre pestañas" as UC_Navigate
+
+  usecase "Ver lista de comidas" as UC_ViewMeals
+  usecase "Ver lista de comidas favoritas" as UC_ViewFavMeals
+  usecase "Ver información personal" as UC_UserInfo
+
+  usecase "Ver detalles de una comida" as UC_ViewMealDetails
+  usecase "Ver detalles de una comida favorita" as UC_ViewFavMealDetails
+  usecase "Marcar/Desmarcar favorita" as UC_ToggleFav
+  usecase "Calificar y comentar comida" as UC_RateComment
+
+  usecase "Contactar soporte vía email" as UC_Contact
+}
+
+' Flujo de inicio
+User --> UC_Launch
+UC_Launch --> UC_Splash <<include>>
+UC_Launch --> UC_Login <<include>>
+
+' Proceso de login
+UC_Login --> UC_Theme <<include>>
+UC_Login --> UC_Access <<include>>
+
+' Acceso a la app
+UC_Access --> UC_Navigate <<include>>
+
+' Navegación entre secciones
+UC_Navigate --> UC_ViewMeals <<include>>
+UC_Navigate --> UC_ViewFavMeals <<include>>
+UC_Navigate --> UC_UserInfo <<include>>
+
+' Desde la lista de comidas
+UC_ViewMeals --> UC_ViewMealDetails <<include>>
+UC_ViewMeals --> UC_ToggleFav <<extend>>
+
+' Desde la lista de comidas favoritas
+UC_ViewFavMeals --> UC_ViewFavMealDetails <<include>>
+UC_ViewFavMeals --> UC_ToggleFav <<extend>>
+
+' Dentro de la vista detallada de una comida favorita, acciones opcionales
+UC_ViewFavMealDetails --> UC_RateComment <<extend>>
+
+' Acceso a soporte (por ejemplo, desde la sección de Créditos)
+UC_Access --> UC_Contact <<include>>
+@enduml

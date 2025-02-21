@@ -1,0 +1,232 @@
+@startuml
+left to right direction
+skinparam classAttributeIconSize 0
+
+package "com.example.myapplication" {
+
+  '=======================
+  ' Binding Classes
+  '=======================
+  class ActivityMainBinding << (B,#ADD1B2) Binding >> {
+  }
+  class FragmentViewPagerAppBinding << (B,#ADD1B2) Binding >> {
+  }
+  class FragmentViewPagerBinding << (B,#ADD1B2) Binding >> {
+  }
+  class FragmentCreditBinding << (B,#ADD1B2) Binding >> {
+  }
+  class FragmentMenuBinding << (B,#ADD1B2) Binding >> {
+  }
+  class FragmentItemListBinding << (B,#ADD1B2) Binding >> {
+  }
+  class FragmentFavItemListBinding << (B,#ADD1B2) Binding >> {
+  }
+  class FragmentDetailItemBinding << (B,#ADD1B2) Binding >> {
+  }
+  class FragmentDetailFavItemBinding << (B,#ADD1B2) Binding >> {
+  }
+  class FragmentUserInfoBinding << (B,#ADD1B2) Binding >> {
+  }
+  class FragmentMainBinding << (B,#ADD1B2) Binding >> {
+  }
+
+  '=======================
+  ' Actividades
+  '=======================
+  class MainActivity {
+    - _binding : ActivityMainBinding?
+    + onCreate(savedInstanceState: Bundle) : void
+    + onSupportNavigateUp() : boolean
+    + updateUpButtonColor() : void
+    + onDestroy() : void
+  }
+  MainActivity --|> AppCompatActivity
+  MainActivity *-- ActivityMainBinding
+
+  class SplashActivity {
+    + onCreate(savedInstanceState: Bundle?) : void
+  }
+  SplashActivity --|> AppCompatActivity
+
+  '=======================
+  ' Modelo de Datos
+  '=======================
+  class Meal {
+    + idMeal: String
+    + strMeal: String
+    + strDrinkAlternate: String?
+    + strCategory: String
+    + strArea: String
+    + strInstructions: String
+    + strMealThumb: String
+    + strTags: String?
+    + strYoutube: String
+    + ingredients: List<String?>
+    + measures: List<String?>
+    + strSource: String?
+    + fav: Boolean
+    + star: int
+    + comment: String?
+  }
+  Meal --|> Parcelable
+
+  class MealData {
+    {static} + meals : List<Meal>
+  }
+
+  '=======================
+  ' Adaptadores y ViewHolders
+  '=======================
+  class MealsAdapter {
+    - mealsLista: List<Meal>
+    - onClickListener: (Meal) -> Unit
+    + onCreateViewHolder(parent: ViewGroup, viewType: int) : MealsViewHolder
+    + getItemCount() : int
+    + onBindViewHolder(holder: MealsViewHolder, position: int) : void
+  }
+  MealsAdapter --|> "RecyclerView.Adapter<MealsViewHolder>"
+  MealsAdapter --> Meal : "usa lista de"
+
+  class MealsViewHolder {
+    - binding: ItemMealsBinding
+    + render(mealModel: Meal, onClickListener: (Meal) -> Unit) : void
+  }
+  MealsViewHolder --|> "RecyclerView.ViewHolder"
+  MealsViewHolder *-- ItemMealsBinding
+
+  '=======================
+  ' Fragmentos para ViewPager (App)
+  '=======================
+  class ViewPagerAppFragment {
+    - _binding: FragmentViewPagerAppBinding?
+    - args: ViewPagerAppFragmentArgs
+    + onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) : View?
+    + onViewCreated(view: View, savedInstanceState: Bundle?) : void
+  }
+  ViewPagerAppFragment --|> Fragment
+  ViewPagerAppFragment *-- FragmentViewPagerAppBinding
+
+  class NoticeAdapterApp {
+    - data: String
+    + getItemCount() : int
+    + createFragment(position: int) : Fragment
+  }
+  NoticeAdapterApp --|> "FragmentStateAdapter"
+  ViewPagerAppFragment --> NoticeAdapterApp
+
+  '=======================
+  ' Fragmentos para ViewPager (Main)
+  '=======================
+  class ViewPagerFragment {
+    - _binding: FragmentViewPagerBinding?
+    - args: ViewPagerFragmentArgs
+    + onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) : View?
+    + onViewCreated(view: View, savedInstanceState: Bundle?) : void
+  }
+  ViewPagerFragment --|> Fragment
+  ViewPagerFragment *-- FragmentViewPagerBinding
+
+  class NoticeAdapter {
+    - data: String
+    + getItemCount() : int
+    + createFragment(position: int) : Fragment
+  }
+  NoticeAdapter --|> "FragmentStateAdapter"
+  ViewPagerFragment --> NoticeAdapter
+
+  '=======================
+  ' Otros Fragmentos
+  '=======================
+  class CreditFragment {
+    - _binding: FragmentCreditBinding?
+    - receivedData: String?
+    + onCreate(savedInstanceState: Bundle?) : void
+    + onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) : View?
+    + onViewCreated(view: View, savedInstanceState: Bundle?) : void
+    {static} + newInstance(data: String) : CreditFragment
+  }
+  CreditFragment --|> Fragment
+  CreditFragment *-- FragmentCreditBinding
+
+  class MenuFragment {
+    - _binding: FragmentMenuBinding?
+    - receivedData: String?
+    + onCreate(savedInstanceState: Bundle?) : void
+    + onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) : View?
+    + onViewCreated(view: View, savedInstanceState: Bundle?) : void
+    {static} + newInstance(data: String) : MenuFragment
+  }
+  MenuFragment --|> Fragment
+  MenuFragment *-- FragmentMenuBinding
+
+  class ItemListFragment {
+    - _binding: FragmentItemListBinding?
+    - receivedData: String?
+    + onCreate(savedInstanceState: Bundle?) : void
+    + onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) : View?
+    + onResume() : void
+    - initRecyclerView() : void
+    - onItemSelected(meal: Meal) : void
+    {static} + newInstance(data: String) : ItemListFragment
+  }
+  ItemListFragment --|> Fragment
+  ItemListFragment *-- FragmentItemListBinding
+
+  class FavItemListFragment {
+    - _binding: FragmentFavItemListBinding?
+    + onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) : View?
+    + onResume() : void
+    - initRecyclerView() : void
+    - filtro() : void
+    - onItemSelected(meal: Meal) : void
+    - toast() : void
+    {static} + newInstance(data: String) : FavItemListFragment
+  }
+  FavItemListFragment --|> Fragment
+  FavItemListFragment *-- FragmentFavItemListBinding
+
+  class DetailItemFragment {
+    - _binding: FragmentDetailItemBinding?
+    - meal: Meal?
+    - star: int
+    + onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) : View?
+    + onViewCreated(view: View, savedInstanceState: Bundle?) : void
+  }
+  DetailItemFragment --|> Fragment
+  DetailItemFragment *-- FragmentDetailItemBinding
+
+  class DetailFavItemFragment {
+    - _binding: FragmentDetailFavItemBinding?
+    - meal: Meal?
+    - star: int
+    + onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) : View?
+    + onViewCreated(view: View, savedInstanceState: Bundle?) : void
+    + onStop() : void
+    - updateComment() : void
+    - updateStar() : void
+  }
+  DetailFavItemFragment --|> Fragment
+  DetailFavItemFragment *-- FragmentDetailFavItemBinding
+
+  class UserInfoFragment {
+    - _binding: FragmentUserInfoBinding?
+    - receivedData: String?
+    + onCreate(savedInstanceState: Bundle?) : void
+    + onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) : View?
+    {static} + newInstance(data: String) : UserInfoFragment
+  }
+  UserInfoFragment --|> Fragment
+  UserInfoFragment *-- FragmentUserInfoBinding
+
+  class LoginFragment {
+    - _binding: FragmentMainBinding?
+    + onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) : View?
+    + onViewCreated(view: View, savedInstanceState: Bundle?) : void
+    + onDestroyView() : void
+    - toast() : void
+  }
+  LoginFragment --|> Fragment
+  LoginFragment *-- FragmentMainBinding
+
+}
+@enduml
